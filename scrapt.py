@@ -1,7 +1,8 @@
 import requests
 
-def fetch_and_save_repos(username):
-    api = f"https://api.github.com/users/{username}/repos"
+def fetch_and_save_repos(username, jumlah):
+    
+    api = f"https://api.github.com/users/{username}/repos?per_page={jumlah}"
     
     try:
         response = requests.get(api)
@@ -22,4 +23,5 @@ def fetch_and_save_repos(username):
 
 # Panggil fungsi dengan username GitHub
 username = input("Masukkan username GitHub: ")
-fetch_and_save_repos(username)
+jumlah = input("Masukkan jumlah yg ingin di ambil: ")
+fetch_and_save_repos(username, jumlah)
